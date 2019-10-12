@@ -7,5 +7,9 @@ urlpatterns = [
     # url(r'^$', app.views.home, name='home'),
     # url(r'^add', app.views.add, name='add'),
     url(r'^$', app.views.index, name='index'),
+    url(r'^register', app.views.register, name='register'),
+    url(r'^login', app.views.login, name='login'),
+    url(r'^logout', app.views.logout, name='logout'),
+
 
 ]
