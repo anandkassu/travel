@@ -3,6 +3,7 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import Destination
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 @csrf_exempt
 def home(request):
@@ -46,7 +47,10 @@ def add(request):
     # return render(request, "index.html", {'dests': destination})
     
 # to pass data from database
+def travel(request):
+    return render(request, 'travel.html')
 
+@login_required
 def index(request):
     dests = Destination.objects.all()
     return render(request, "index.html", {'dests': dests})
@@ -90,7 +94,7 @@ def login(request):
 
         if user is not None:
             auth.login(request, user)
-            return redirect('/')
+            return redirect('index')
         else:
             messages.info(request,'invalid credentials')
             return redirect('login')
