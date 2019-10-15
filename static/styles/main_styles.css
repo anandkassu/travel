@@ -223,7 +223,7 @@ section
 }
 .parallax-window
 {
-    min-height: 400px;
+    /* min-height: 400px; */
     background: transparent;
 }
 .parallax_background
@@ -1296,7 +1296,7 @@ section
 }
 .newsletter_button
 {
-	width: 161px;
+	width: 100px;
 	height: 50px;
 	border-radius: 20px;
 	background: rgba(255,255,255,0.5);

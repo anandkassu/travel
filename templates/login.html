@@ -1,13 +1,16 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>register</title>
+    <title>login</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/register.css' %}">
+
 </head>
 <body>
-    <form action="login" method="POST">
+    <!-- <form action="login" method="POST">
         {% csrf_token %}
        
         username : <input type="text" name="username" placeholder="username"><br/><br/>
@@ -18,6 +21,85 @@
         {% for message in messages%}
         <h4>{{message}}</h4>
         {% endfor %}
+    </div> -->
+    <section class="sign-in">
+            <div class="container">
+                <div class="signin-content">
+                    <div class="signin-image">
+                        <figure><img src="{% static 'images/signin-image.jpg'%}" alt="sing up image"></figure>
+                        <a href="register" class="signup-image-link">Create an account</a>
+                    </div>
+
+                    <div class="signin-form">
+                        <h2 class="form-title">Sign in</h2>
+                        <form method="POST" class="register-form" id="login-form" action="login">
+                            {% csrf_token %}
+                            <div class="form-group">
+                               <img src="{% static 'images/user.png'%}"  class="icon"/>                                
+                                <input type="text" name="username" id="your_name" placeholder="Username"/>
+                            </div>
+                            <div class="form-group">
+                               <img src="{% static 'images/lock.png'%}" class="icon" />
+                                <input type="password" name="password" id="your_pass" placeholder="Password"/>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
+                            </div>
+                        </form>
+                        <div class="social-login">
+                            <span class="social-label">Or login with</span>
+                            <ul class="socials">
+                                <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
+                                <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
+                                <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </div>
+    <div class="message_div">
+            {% for message in messages%}
+            <h4 class="message">{{message}}</h4>
+            {% endfor %}
+        </div>
+
 </body>
 </html>
+<style>
+.icon{
+    width: auto;
+    height: 20px;
+    padding-top: 12px;
+  }
+   input{
+       font-size: 18px;
+   }
+   .signin-content{
+       margin-top: 20%;
+   }
+   .message{
+    line-height: 1.66;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    color: #222;
+    font-family: Poppins;
+    font-size: 28px;
+   }
+   .message_div{
+    position: absolute;
+    top: 12%;
+    /* left: 40%; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+   }
+   @media screen and (max-width:768px){
+       .sign-in{
+           padding-bottom: 70px;;
+       }
+   }
+</style>
