@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+{#<h1 align="center">Add new items....</h1>#}
+{#Title : <input type="Text" name="Title"><br/><br/>#}
+{#Amount : <input type="Text" name="Balance"><br/><br/>#}
+{#Description : <input type="Text" name="Description"><br/><br/>#}
+<form  method="POST">
+{% csrf_token %}
+    <table> {% include  'tweaky_form.html' with form=form %}
+    </table>
+{#pip install django-widget-tweaks#}
+<input type="submit" value="submit" >
+</form>
+
+{% endblock %}
+<style>
+    #id_title{
+        width: 50%;
+    }
+</style>

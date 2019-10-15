@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+    <table border="5"  cellpadding="10" class="Table">
+
+        <tr>
+        <th>Title</th>
+        <th>Amount</th>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Account</th>
+         <th>Category</th>
+        </tr>
+        {% for object in object_list %}
+            <tr>
+                <td> <a href="/view/{{object.id}}/">{{ object.title }}</a></td>
+                <td> {{ object.amount}}</td>
+                <td>{{ object.date }}</td>
+                <td> {{ object.description }}</td>
+                <td> {{ object.account }}</td>
+                <td> {{ object.category }}</td>
+            </tr>
+
+        {% endfor %}
+
+    </table>
+{% endblock %}

@@ -1,0 +1,26 @@
+ 
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+    <table class="Table">
+
+
+
+
+
+                <tr> <th>Title:</th><td> {{ object.title|upper }}</td></tr>
+                <tr><th>Amount :</th><td> {{ object.amount }}</td> </tr>
+                <tr><th>Date :</th><td> {{ object.date }}</td></tr>
+                <tr><th>Description :</th><td>  {{ object.description }}</td></tr>
+                <tr><th> Account :</th><td> {{ object.account }}</td></tr><br>
+                 <tr><th> Category : </th><td>{{ object.category }}</td></tr><br>
+
+
+
+
+    </table>
+    <a href="/view/{{ object.id }}/edit/"><input type="submit" value="update" class="btn btn-info"></a>
+    <a href="/view/{{ object.id }}/delete/"><input type="submit" value="delete" class="btn btn-danger btn-lg"></a>
+{% endblock %}

@@ -289,10 +289,10 @@ section
 {
 	width: 100%;
 }
-.logo a
+.logo 
 {
 	font-family: 'Oswald', sans-serif;
-	font-size: 30px;
+	font-size: 45px;
 	font-weight: 500;
 	color: #FFFFFF;
 	line-height: 0.75;
@@ -342,7 +342,7 @@ section
 .main_nav ul li a
 {
 	font-family: 'Oswald', sans-serif;
-	font-size: 16px;
+	font-size: 22px;
 	font-weight: 400;
 	color: #FFFFFF;
 	white-space: nowrap;
@@ -381,7 +381,7 @@ section
 }
 .header_social ul li a i
 {
-	font-size: 14px;
+	font-size: 24px;
 	color: rgba(255,255,255,1);
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
@@ -446,7 +446,7 @@ section
 .menu_logo a
 {
 	font-family: 'Oswald', sans-serif;
-	font-size: 30px;
+	font-size: 48px;
 	font-weight: 500;
 	color: #181818;
 	line-height: 0.75;
@@ -582,6 +582,7 @@ section
 	line-height: 1.1;
 	font-weight: 400;
 	color: #FFFFFF;
+	opacity: 0.8;
 }
 .home_page_nav
 {

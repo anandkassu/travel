@@ -1,20 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    
-        {{sum}}<br><br>
-    <form action="add" method="post">
-    {% csrf_token %}
-   number1 : <input type="text" name="num1" ><br><br>
-   number2 : <input type="text" name="num2" ><br><br>
-    <button value="add">add</button> 
-    </form>
-    
-</body>
-</html>
+ 
+{% extends 'base.html' %}
+{% block content %}
+<form action="add_new">
+<a href="add_new.html"><input type="submit" value="add_new" class="btn btn-outline-info btn-info" >add new expense</a><br/><br/><br/>
+</form>
+
+<form action="views">
+<a href="view_expense.html"><input type="submit" value="views" class="btn btn-outline-info btn-info" >view expense item</a>
+
+</form>
+
+{% endblock %}

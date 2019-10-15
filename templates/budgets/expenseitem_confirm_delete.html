@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<form  method="POST">
+{% csrf_token %}
+    <table> {% include  'tweaky_form.html' with form=form %}
+    </table>
+
+    <a href='/'><input type="submit" value="delete"></a>
+{% endblock %}

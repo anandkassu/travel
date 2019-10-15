@@ -4,47 +4,23 @@ from .models import Destination
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.views.generic import CreateView
+from django.views.generic import ListView
+from django.views.generic import DetailView, UpdateView, DeleteView
+from .models import ExpenseItem, Message
+from .form import ContactForm
 
 @csrf_exempt
-def home(request):
-    return render(request, 'home.html',{'sum':'addition of two number'})
+# def home(request):
+#     return render(request, 'home(1).html',{'sum':'addition of two number'})
 
-def add(request):
-    var1=int(request.POST["num1"])
-    var2=int(request.POST["num2"])
-    res=var1+var2
-    return render(request, 'result.html',{'result':res})
-
-
-# to pass data from here into html file
+# def add(request):
+#     var1=int(request.POST["num1"])
+#     var2=int(request.POST["num2"])
+#     res=var1+var2
+#     return render(request, 'result.html',{'result':res})
 
 
-# def index(request):
-
-    # dest1 = Destination()
-    # dest1.name = 'Mumbai'
-    # dest1.des = 'The City That Never Sleeps'
-    # dest1.img = 'destination_1.jpg'
-    # dest1.price = 700
-    # dest1.offer = True
-
-    # dest2 = Destination()
-    # dest2.name = 'Hyderabad'
-    # dest2.des = 'First Biryani, Then Sherwani'
-    # dest2.img = 'destination_2.jpg'
-    # dest2.price = 650
-    # dest2.offer = False
-
-    # dest3 = Destination()
-    # dest3.name = 'Bengaluru'
-    # dest3.des = 'Beautiful City'
-    # dest3.img = 'destination_3.jpg'
-    # dest3.price = 750
-    # dest3.offer = True
-
-    # destination = [dest1, dest2, dest3]
-
-    # return render(request, "index.html", {'dests': destination})
     
 # to pass data from database
 def travel(request):
@@ -105,3 +81,62 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return redirect('/')
+
+#budgets
+def home(request):
+    return render(request, 'home.html')
+
+
+class AddItemView(CreateView):
+    queryset = ExpenseItem.objects.all()
+    template_name = 'add_new.html'
+    fields = ['title', 'date', 'amount', 'description', 'account', 'category']
+    success_url = '/budget'
+
+
+
+
+
+class ListItemView(ListView):
+    queryset = ExpenseItem.objects.all()
+    template_name = 'view_expense.html'
+
+
+class DetailItemView(DetailView):
+    queryset = ExpenseItem.objects.all()
+    template_name = 'expenseitem_detail.html'
+
+
+
+class UpdateItemView(UpdateView):
+    queryset = ExpenseItem.objects.all()
+    fields = ['title', 'date', 'amount', 'description', 'account', 'category']
+    template_name = 'budgets/expenseitem_form.html'
+
+    def get_success_url(self):
+        return '/view/' + str(self.object.id)
+
+
+class DeleteItemView(DeleteView):
+    queryset = ExpenseItem.objects.all()
+    fields = ['title', 'date', 'amount', 'description', 'account', 'category']
+    template_name = 'budgets/expenseitem_confirm_delete.html'
+
+    def get_success_url(self):
+        return '/'
+
+
+@login_required
+def contact(request):
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            print('validated')
+            Message.objects.create(title=request.POST.get('title'), email=request.POST.get('email'),
+                                   message=request.POST.get('message'))
+            return HttpResponseRedirect('/')
+
+    else:
+        form = ContactForm()
+    context = {'form': form}
+    return render(request, 'contact_form.html', context)
