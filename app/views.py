@@ -83,6 +83,7 @@ def logout(request):
     return redirect('/')
 
 #budgets
+@login_required
 def home(request):
     return render(request, 'home.html')
 
@@ -123,7 +124,7 @@ class DeleteItemView(DeleteView):
     template_name = 'budgets/expenseitem_confirm_delete.html'
 
     def get_success_url(self):
-        return '/'
+        return '/budget'
 
 
 @login_required

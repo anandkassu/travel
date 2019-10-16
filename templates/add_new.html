@@ -1,20 +1,120 @@
-{% extends 'base.html' %}
-{% block content %}
-{#<h1 align="center">Add new items....</h1>#}
-{#Title : <input type="Text" name="Title"><br/><br/>#}
-{#Amount : <input type="Text" name="Balance"><br/><br/>#}
-{#Description : <input type="Text" name="Description"><br/><br/>#}
-<form  method="POST">
-{% csrf_token %}
-    <table> {% include  'tweaky_form.html' with form=form %}
-    </table>
-{#pip install django-widget-tweaks#}
-<input type="submit" value="submit" >
-</form>
 
-{% endblock %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>budget</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/register.css' %}">
+</head>
+<body>
+<section class="signup">
+        <div class="container">
+                <div class="signup-content">
+                       
+                    <div class="signup-form">
+                        <h2 class="form-title">Add your budget</h2>
+                           
+                          
+                           
+                                <form  method="POST">
+                                        {% csrf_token %}
+                                        <div class="form_div">
+                                            <table> {% include  'tweaky_form.html' with form=form %}
+                                            </table>
+                                        </div>
+                                        
+                                        <div class="form-group form-button">
+                                                <input type="submit" name="signup" id="signup" class="form-submit" />
+                                               </div> 
+                                        </form>
+                                        <label class="date">yyyy-mm-dd</label>
+                    </div>
+                    <!-- <div class="signup-image">
+                        <figure><img src="{% static 'images/signup-image.jpg'%}" alt="sing up image"></figure>
+                        
+                    </div> -->
+                </div>
+            </div>
+        </section>
+       
+
+</body>
+</html>
 <style>
+    label{
+        position:unset;
+        font-size: 18px;
+        width: fit-content;
+        margin-bottom: 30px;
+        margin-top: 2px;
+    }
+    section{
+        margin: 0;
+    }
+    .signup{
+        margin: 0;
+    }
+    input{margin-left: 100px;font-size: 16px;}
+    .form_div{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
     #id_title{
-        width: 50%;
+        position: absolute;
+    width: 400px;
+    top: -17px;
+    }
+    #id_date{
+        position: absolute;
+    top: 48px;
+    }
+    #id_amount{
+        position: absolute;
+    top: 108px;
+    }
+    #id_description{
+        position: absolute;
+        top: 165px;
+        margin-left: 100px;
+        width: 344px;
+        height: 50px;
+        border-bottom: 1px solid #999;
+        font-size: 16px;
+    padding: 6px 2px;
+    font-family: Poppins;
+    }
+   #id_category, #id_account{
+    width: fit-content;
+    position: absolute;
+    margin-left: 100px;
+    height: 26px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 16px;
+    background-color: white;
+    }
+    #id_account{ top: 246px;}
+    #id_category{top: 308px;}
+    .form-submit{
+        margin: 0;
+    }
+    #text{
+        position: absolute;
+        top: 0;
+    }
+    .date{
+        position: absolute;
+        top: 407px;
+        left: 900px;
+    
+    }
+    @media screen and (max-width:768px){
+        .date{display: none;}
+        #id_title,#id_amount,#id_date,#id_description{width: 150px;}
+        
     }
 </style>

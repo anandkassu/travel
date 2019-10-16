@@ -1,13 +1,52 @@
- 
-{% extends 'base.html' %}
-{% block content %}
+<!-- 
 <form action="add_new">
-<a href="add_new.html"><input type="submit" value="add_new" class="btn btn-outline-info btn-info" >add new expense</a><br/><br/><br/>
+<a href="add_new.html"><input type="submit" value="add_new" class="add" ></a>add new expense<br/><br/><br/>
 </form>
 
 <form action="views">
-<a href="view_expense.html"><input type="submit" value="views" class="btn btn-outline-info btn-info" >view expense item</a>
+<a href="view_expense.html"><input type="submit" value="views" class="view" ></a>view expense item
+</form> -->
 
-</form>
 
-{% endblock %}
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>budget</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/register.css' %}">
+</head>
+<body>
+
+<section class="signup">
+        <div class="container">
+                <div class="signup-content">
+                       
+                    <div class="signup-form">
+                        <h2 class="form-title">Travello Budget</h2>
+                       
+                            {% csrf_token %}
+                            <form action="add_new">
+                            <div class="form-group form-button">
+                                <a href="add_new.html"><input type="submit" name="signup" id="signup" class="form-submit" value="Add"/></a>
+                            </div>
+                        </form>
+                        <form action="views">
+                            <div class="form-group form-button">
+                                    <a href="view_expense.html"><input type="submit" name="signup" id="signup" class="form-submit" value="View"/></a>
+                                </div>
+                            </form>
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="{% static 'images/signup-image.jpg'%}" alt="sing up image"></figure>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+</body>
+</html> 

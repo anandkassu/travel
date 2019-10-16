@@ -1,8 +1,5 @@
-{% extends 'base.html' %}
-{% block content %}
 
-
-    <table border="5"  cellpadding="10" class="Table">
+    <!-- <table class="Table">
 
         <tr>
         <th>Title</th>
@@ -24,5 +21,89 @@
 
         {% endfor %}
 
+    </table> -->
+
+    {% load static %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>budget</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'styles/register.css' %}">
+    </head>
+    <body>
+    
+    <section class="signup">
+            <div class="container">
+                    <div class="signup-content">
+                           
+                        <div class="signup-form">
+                            <h2 class="form-title">your budget</h2>
+                           
+
+                               
+                               <!-- <div class="header"> Title</div> -->
+                               <!-- <div>  <th>Amount</th></div>
+                               <div> <th>Date</th></div>
+                               <div> <th>Description</th></div>
+                               <div> <th>Account</th></div>
+                               <div> <th>Category</th></div> -->
+                               <!-- </tr> -->
+                                {% for object in object_list %}
+                                   
+                                  <h6 class="header"><a href="/view/{{object.id}}/">{{ object.title }}</a></h6><br>
+                                        <!-- <td> {{ object.amount}}</td>
+                                        <td>{{ object.date }}</td>
+                                        <td> {{ object.description }}</td>
+                                        <td> {{ object.account }}</td>
+                                        <td> {{ object.category }}</td> -->
+                                    
+
+                                {% endfor %}
+
     </table>
-{% endblock %}
+                            </div>
+                                    
+                        </div>
+                       
+                     </div>
+                </div>
+            </section>
+    
+    </form>
+    </body>
+    </html>
+    
+    
+    
+    
+                              
+                              
+    <style>
+        h6{margin: 0;}
+      .header{
+          font-size: 18px;
+          font-family: Poppins;
+          text-transform:uppercase;
+      }
+        section{
+            margin: 0;
+        }
+        .signup{
+            margin: 0;
+        }
+      
+        .form_div{
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        a{text-decoration: none;
+        color: black;}
+        
+        @media screen and (max-width:768px){}
+        
+    </style> 
+    

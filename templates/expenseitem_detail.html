@@ -1,10 +1,8 @@
  
-{% extends 'base.html' %}
-{% block content %}
 
 
 
-    <table class="Table">
+    <!-- <table class="Table">
 
 
 
@@ -17,10 +15,134 @@
                 <tr><th> Account :</th><td> {{ object.account }}</td></tr><br>
                  <tr><th> Category : </th><td>{{ object.category }}</td></tr><br>
 
+    </table>
+    <a href="/view/{{ object.id }}/edit/"><input type="submit" value="update" class="btn btn-info"></a>
+    <a href="/view/{{ object.id }}/delete/"><input type="submit" value="delete" class="btn btn-danger btn-lg"></a> -->
+
+    {% load static %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>budget</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'styles/register.css' %}">
+    </head>
+    <body>
+    
+    <section class="signup">
+            <div class="container">
+                    <div class="signup-content">
+                           
+                        <div class="signup-form">
+                            <h2 class="form-title">Details</h2>
+                           <table class="Table">
 
 
+
+
+
+                <tr> <th>Title:</th><td> {{ object.title|upper }}</td></tr>
+                <tr><th>Amount :</th><td> {{ object.amount }}</td> </tr>
+                <tr><th>Date :</th><td> {{ object.date }}</td></tr>
+                <tr><th>Description :</th><td>  {{ object.description }}</td></tr>
+                <tr><th> Account :</th><td> {{ object.account }}</td></tr><br>
+                 <tr><th> Category : </th><td>{{ object.category }}</td></tr><br>
 
     </table>
     <a href="/view/{{ object.id }}/edit/"><input type="submit" value="update" class="btn btn-info"></a>
     <a href="/view/{{ object.id }}/delete/"><input type="submit" value="delete" class="btn btn-danger btn-lg"></a>
-{% endblock %}
+                                   </div>
+                                    
+                        </div>
+                       
+                     </div>
+                </div>
+            </section>
+    
+    </form>
+    </body>
+    </html>
+    
+    
+    
+    
+                              
+                              
+    <style>
+        label{
+            position:unset;
+            font-size: 18px;
+            width: fit-content;
+            margin-bottom: 30px;
+            margin-top: 2px;
+        }
+        section{
+            margin: 0;
+        }
+        .signup{
+            margin: 0;
+        }
+        input{margin-left: 100px;font-size: 16px;}
+        .form_div{
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        #id_title{
+            position: absolute;
+        width: 400px;
+        top: -17px;
+        }
+        #id_date{
+            position: absolute;
+        top: 48px;
+        }
+        #id_amount{
+            position: absolute;
+        top: 108px;
+        }
+        #id_description{
+            position: absolute;
+            top: 165px;
+            margin-left: 100px;
+            width: 344px;
+            height: 50px;
+            border-bottom: 1px solid #999;
+            font-size: 16px;
+        padding: 6px 2px;
+        font-family: Poppins;
+        }
+       #id_category, #id_account{
+        width: fit-content;
+        position: absolute;
+        margin-left: 100px;
+        height: 26px;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 16px;
+        background-color: white;
+        }
+        #id_account{ top: 246px;}
+        #id_category{top: 308px;}
+        .form-submit{
+            margin: 0;
+        }
+        #text{
+            position: absolute;
+            top: 0;
+        }
+        .date{
+            position: absolute;
+            top: 407px;
+            left: 900px;
+        
+        }
+        @media screen and (max-width:768px){
+            .date{display: none;}
+            #id_title,#id_amount,#id_date,#id_description{width: 150px;}
+            
+        }
+    </style> --> 
+    
