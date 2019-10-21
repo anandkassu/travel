@@ -8,8 +8,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>budget</title>
     <link rel="stylesheet" type="text/css" href="{% static 'styles/register.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/budget/add_new.css' %}">
 </head>
 <body>
+<a href="index"><h1 class="logo_header">Travello</h1></a>
+
 <section class="signup">
         <div class="container">
                 <div class="signup-content">
@@ -32,10 +35,9 @@
                                         </form>
                                         <label class="date">yyyy-mm-dd</label>
                     </div>
-                    <!-- <div class="signup-image">
-                        <figure><img src="{% static 'images/signup-image.jpg'%}" alt="sing up image"></figure>
-                        
-                    </div> -->
+                    <div class="image_div">
+                    <a href="budget"><img src="{% static 'images/home.png'%}" alt="sing up image" class="image_icon"><img></a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -44,77 +46,5 @@
 </body>
 </html>
 <style>
-    label{
-        position:unset;
-        font-size: 18px;
-        width: fit-content;
-        margin-bottom: 30px;
-        margin-top: 2px;
-    }
-    section{
-        margin: 0;
-    }
-    .signup{
-        margin: 0;
-    }
-    input{margin-left: 100px;font-size: 16px;}
-    .form_div{
-        display: flex;
-        flex-direction: column;
-        position: relative;
-    }
-    #id_title{
-        position: absolute;
-    width: 400px;
-    top: -17px;
-    }
-    #id_date{
-        position: absolute;
-    top: 48px;
-    }
-    #id_amount{
-        position: absolute;
-    top: 108px;
-    }
-    #id_description{
-        position: absolute;
-        top: 165px;
-        margin-left: 100px;
-        width: 344px;
-        height: 50px;
-        border-bottom: 1px solid #999;
-        font-size: 16px;
-    padding: 6px 2px;
-    font-family: Poppins;
-    }
-   #id_category, #id_account{
-    width: fit-content;
-    position: absolute;
-    margin-left: 100px;
-    height: 26px;
-    padding-left: 10px;
-    padding-right: 10px;
-    font-size: 16px;
-    background-color: white;
-    }
-    #id_account{ top: 246px;}
-    #id_category{top: 308px;}
-    .form-submit{
-        margin: 0;
-    }
-    #text{
-        position: absolute;
-        top: 0;
-    }
-    .date{
-        position: absolute;
-        top: 407px;
-        left: 900px;
-    
-    }
-    @media screen and (max-width:768px){
-        .date{display: none;}
-        #id_title,#id_amount,#id_date,#id_description{width: 150px;}
-        
-    }
+       
 </style>

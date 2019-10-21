@@ -1,11 +1,54 @@
-{% extends 'base.html' %}
-{% block content %}
 
+    {% load static %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>budget</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'styles/register.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'styles/budget/expenseitem_confirm_delete.css' %}">
+    </head>
+    <body>
+<a href="index"><h1 class="logo_header">Travello</h1></a>
 
-<form  method="POST">
-{% csrf_token %}
-    <table> {% include  'tweaky_form.html' with form=form %}
-    </table>
+    <section class="signup">
+            <div class="container">
+                    <div class="signup-content">
+                           
+                        <div class="signup-form">
+                            <h2 class="form-title">Are you sure ?</h2>
+                               
+                              
+                               
+                                    <form  method="POST">
+                                            {% csrf_token %}
+                                            <div class="form_div">
+                                                <table> {% include  'tweaky_form.html' with form=form %}
+                                                </table>
+                                            </div>
+                                            
+                                           
+                                            <div class="form-group form-button yes_btn">
+                                                    <a href='/'><input type="submit" value="yes" id="signup" class="form-submit delete " /></a>
+                                                   </div> 
+                                            </form>
+                                            <div class="form-group form-button no_btn">
+                                                    <a href='/views'><input type="submit" value="no" id="signup" class="form-submit" /></a>
+                                                   </div> 
+                                            
+                        </div>
+                        <div class="image_div">
+                            <a href="/budget"><img src="{% static 'images/home.png'%}" alt="sing up image" class="image_icon"><img></a>
+                            </div>
+                       
+                    </div>
+                </div>
+            </section>
+           
+    
+    </body>
+    </html>
 
-    <a href='/'><input type="submit" value="delete"></a>
-{% endblock %}
+    

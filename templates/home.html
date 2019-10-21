@@ -1,12 +1,3 @@
-<!-- 
-<form action="add_new">
-<a href="add_new.html"><input type="submit" value="add_new" class="add" ></a>add new expense<br/><br/><br/>
-</form>
-
-<form action="views">
-<a href="view_expense.html"><input type="submit" value="views" class="view" ></a>view expense item
-</form> -->
-
 
 
 {% load static %}
@@ -20,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'styles/register.css' %}">
 </head>
 <body>
-
+<a href="index"><h1 class="logo_header">Travello</h1></a>
 <section class="signup">
         <div class="container">
                 <div class="signup-content">
@@ -50,3 +41,16 @@
 
 </body>
 </html> 
+<style>
+    .logo_header{
+        font-family: 'Oswald', sans-serif;
+    font-size: 45px;
+    font-weight: 600;
+    color: black;
+    line-height: 0.75;
+    position: absolute;
+    top: 20px;
+    left: 115px;
+
+    }
+</style>
