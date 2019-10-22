@@ -39,13 +39,14 @@ Markdown==3.1.1
 mccabe==0.6.1
 oauthlib==3.1.0
 pilkit==2.0
-Pillow==6.2.0
+Pillow==6.2.1
 post==2019.4.13
 psycopg2==2.8.4
 public==2019.4.13
 pycrypto==2.6.1
 PyGObject==3.30.1
 pylint==1.9.5
+python-decouple==3.1
 python-openid==2.2.5
 pytz==2019.3
 pyxdg==0.25
